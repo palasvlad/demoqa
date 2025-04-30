@@ -1,2 +1,0 @@
-# demoqa
-selenium automation training
