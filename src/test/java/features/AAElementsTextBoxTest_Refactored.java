@@ -1,42 +1,38 @@
 package features;
 
-import helpers.Element;
-import helpers.Window;
+import helperMethods.DriverHelper;
+import helperMethods.Element;
+import helperMethods.Window;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.SubMenuPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AAElementsTextBoxTest {
+public class AAElementsTextBoxTest_Refactored {
 
     public WebDriver driver;
     public String expectedTextinTextBox = "Text Box";
     public List<String> expectedListInTextBoxAfterSubmit = new ArrayList<>();
     public Element element;
     public Window window;
+    public HomePage homePage;
+    public SubMenuPage subMenuPage;
 
     @Test
     public void testElementesTextBox() {
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
+        driver = DriverHelper.setupWebDriver("https://demoqa.com/");
         element = new Element(driver);
         window = new Window(driver);
+        homePage= new HomePage(driver);
+        subMenuPage = new SubMenuPage(driver);
 
+        homePage.goToMenuItem("Elements");
+        subMenuPage.goToDesiredSubMenu("Text Box");
 
-
-        //  JavascriptExecutor jse = (JavascriptExecutor) driver;
-      //  jse.executeScript("window.scrollBy(0,500)");
-        window.scroll(0,500);
-
-        WebElement elementsMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
-        element.clickElement(elementsMenu);
-
-        WebElement textBoxMenuButton = driver.findElement(By.xpath("//span[text()='Text Box']"));
-        element.clickElement(textBoxMenuButton);
 
         WebElement textBoxText = driver.findElement(By.xpath("//h1[text()='Text Box']"));
 
@@ -45,25 +41,25 @@ public class AAElementsTextBoxTest {
 
         WebElement fullNameTextField = driver.findElement(By.id("userName"));
         element.clickElement(fullNameTextField);
-        fullNameTextField.sendKeys("Vlad Palasanu");
+        element.writeOnElement(fullNameTextField, "Vlad Palasanu");
 
         WebElement eMailTextField = driver.findElement(By.id("userEmail"));
         element.clickElement(eMailTextField);
-        eMailTextField.sendKeys("palas.vlad@gmail.com");
+        element.writeOnElement(eMailTextField,"palas.vlad@gmail.com");
 
         WebElement currentAdressField = driver.findElement(By.id("currentAddress"));
         element.clickElement(currentAdressField);
-        currentAdressField.sendKeys("Tara: Romania");
-        currentAdressField.sendKeys(Keys.ENTER);
-        currentAdressField.sendKeys("Oras: Iasi");
+        element.writeOnElement(currentAdressField,"Tara: Romania");
+        element.newLineOnElement(currentAdressField);
+        element.writeOnElement(currentAdressField,"Oras: Iasi");
         //jse.executeScript("window.scrollBy(0,250)");
         window.scroll(0,250);
 
         WebElement permanentAdressField = driver.findElement(By.id("permanentAddress"));
         element.clickElement(permanentAdressField);
-        permanentAdressField.sendKeys("Tara: Permanent Romania");
-        permanentAdressField.sendKeys(Keys.ENTER);
-        permanentAdressField.sendKeys("Oras: Permanent Iasi");
+        element.writeOnElement(permanentAdressField,"Tara: Permanent Romania");
+        element.newLineOnElement(permanentAdressField);
+        element.writeOnElement(permanentAdressField,"Oras: Permanent Iasi");
 
         WebElement submitButton = driver.findElement(By.id("submit"));
        // jse.executeScript("window.scrollBy(0,250)");
