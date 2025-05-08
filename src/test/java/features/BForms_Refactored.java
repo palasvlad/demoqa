@@ -18,22 +18,22 @@ public class BForms_Refactored {
     public PracticeFormPage practiceFormPage;
 
     @Test
-    public void testPracticeForm(){
+    public void testPracticeForm() {
         driver = DriverHelper.setupWebDriver("https://demoqa.com/");
         element = new Element(driver);
         window = new Window(driver);
-        homePage= new HomePage(driver);
+        homePage = new HomePage(driver);
         subMenuPage = new SubMenuPage(driver);
         practiceFormPage = new PracticeFormPage(driver);
 
         homePage.goToMenuItem("Forms");
         subMenuPage.goToDesiredSubMenu("Practice Form");
-        practiceFormPage.setFNameLnameEmail("Vlad","Pala","pala@gmail.com");
-        window.scroll(0,150);
+        practiceFormPage.setFNameLnameEmail("Vlad", "Pala", "pala@gmail.com");
+        window.scroll(0, 150);
         practiceFormPage.selectMaleGender();
         practiceFormPage.setMobile("0101010011");
 
-        window.scroll(0,250);
+        window.scroll(0, 250);
 
         practiceFormPage.setDateOfBirth("2025");
 
@@ -43,18 +43,17 @@ public class BForms_Refactored {
 
         practiceFormPage.uploadPicture();
 
-        window.scroll(0,250);
+        window.scroll(0, 250);
 
         practiceFormPage.setCurrentAddress();
 
-        window.scroll(0,250);
+        window.scroll(0, 250);
 
         practiceFormPage.setStateAndCity();
 
         practiceFormPage.submitForm();
 
-        practiceFormPage.verifyIfEntryExists("Student Name","Vlad Pala");
-
+        practiceFormPage.verifyIfEntryExists("Student Name", "Vlad Pala");
 
 
     }
