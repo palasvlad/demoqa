@@ -22,4 +22,7 @@ public class SetupCommon {
         driver.quit();
     }
 
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
