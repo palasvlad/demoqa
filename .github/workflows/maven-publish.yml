@@ -4,8 +4,12 @@
 name: Maven Package
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Choose automation suite: RegressionSuite, SmokeSuite'
+        required: true
+        default: onetestexecution
 
 jobs:
   build:
@@ -26,4 +30,4 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
-      run: mvn clean install -DsuiteXmlFile=suites/onetestexecution -PCustomSuite
+      run: mvn clean install -DsuiteXmlFile=suites/${{github.event.inputs.suite}} -PCustomSuite
