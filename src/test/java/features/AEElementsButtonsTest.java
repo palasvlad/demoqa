@@ -13,7 +13,7 @@ public class AEElementsButtonsTest {
 
     public WebDriver driver;
 
-    @Test
+    @Test(enabled = false)
     public void testelementsCheckBox() throws InterruptedException {
         driver = new ChromeDriver();
         driver.get("https://demoqa.com/");

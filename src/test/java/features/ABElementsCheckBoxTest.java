@@ -1,5 +1,7 @@
 package features;
 
+import helperMethods.DriverHelper;
+import helperMethods.Window;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,15 +14,15 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class ABElementsCheckBoxTest {
     public WebDriver driver;
+    public Window window;
 
     @Test
     public void testelementsCheckBox() {
         driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
+        driver = DriverHelper.setupWebDriver("https://demoqa.com/");
+        window = new Window(driver);
 
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,500)");
+        window.scroll(0,500);
 
         WebElement elementsMenu = driver.findElement(By.xpath("//h5[text()='Elements']"));
         elementsMenu.click();
@@ -28,7 +30,7 @@ public class ABElementsCheckBoxTest {
         WebElement textBoxMenuButton = driver.findElement(By.xpath("//span[text()='Check Box']"));
         textBoxMenuButton.click();
 
-        jse.executeScript("window.scrollBy(0,200)");
+        window.scroll(0,200);
         WebElement checkboxSpan = driver.findElement(By.className("rct-checkbox"));
         checkboxSpan.click();
 
@@ -45,7 +47,7 @@ public class ABElementsCheckBoxTest {
         WebElement collapseButtonDocuments = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[2]/span/button"));
         collapseButtonDocuments.click();
 
-        jse.executeScript("window.scrollBy(0,200)");
+        window.scroll(0,200);
         WebElement collapseButtonDownloads = driver.findElement(By.xpath("//*[@id=\"tree-node\"]/ol/li/ol/li[3]/span/button"));
         collapseButtonDownloads.click();
 

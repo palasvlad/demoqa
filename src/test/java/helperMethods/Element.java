@@ -13,28 +13,28 @@ public class Element {
         this.driver = driver;
     }
 
-    public void clickElement(WebElement element){
+    public void clickElement(WebElement element) {
         element.click();
     }
 
-    public void writeOnElement(WebElement element, String textToSend){
+    public void writeOnElement(WebElement element, String textToSend) {
         element.sendKeys(textToSend);
     }
-    public void newLineOnElement(WebElement element) {
+
+    public void enterOnElement(WebElement element) {
         element.sendKeys(Keys.ENTER);
     }
 
-    public void selectElementFromListByText(List<WebElement> element, String text){
-        for(int i=0; i < element.size(); i++){
-            if(element.get(i).getText().equals(text)){
+    public void selectElementFromListByText(List<WebElement> element, String text) {
+        for (int i = 0; i < element.size(); i++) {
+            if (element.get(i).getText().equals(text)) {
                 element.get(i).click();
                 break;
             }
         }
     }
 
-    public void uploadFileOnElement(WebElement element,String pathToFile)
-    {
+    public void uploadFileOnElement(WebElement element, String pathToFile) {
         element.sendKeys(pathToFile);
     }
 }

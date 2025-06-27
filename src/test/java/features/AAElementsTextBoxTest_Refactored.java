@@ -27,7 +27,7 @@ public class AAElementsTextBoxTest_Refactored {
         driver = DriverHelper.setupWebDriver("https://demoqa.com/");
         element = new Element(driver);
         window = new Window(driver);
-        homePage= new HomePage(driver);
+        homePage = new HomePage(driver);
         subMenuPage = new SubMenuPage(driver);
 
         homePage.goToMenuItem("Elements");
@@ -45,31 +45,27 @@ public class AAElementsTextBoxTest_Refactored {
 
         WebElement eMailTextField = driver.findElement(By.id("userEmail"));
         element.clickElement(eMailTextField);
-        element.writeOnElement(eMailTextField,"palas.vlad@gmail.com");
+        element.writeOnElement(eMailTextField, "palas.vlad@gmail.com");
 
         WebElement currentAdressField = driver.findElement(By.id("currentAddress"));
         element.clickElement(currentAdressField);
-        element.writeOnElement(currentAdressField,"Tara: Romania");
-        element.newLineOnElement(currentAdressField);
-        element.writeOnElement(currentAdressField,"Oras: Iasi");
-        //jse.executeScript("window.scrollBy(0,250)");
-        window.scroll(0,250);
+        element.writeOnElement(currentAdressField, "Tara: Romania");
+        element.enterOnElement(currentAdressField);
+        element.writeOnElement(currentAdressField, "Oras: Iasi");
+        window.scroll(0, 250);
 
         WebElement permanentAdressField = driver.findElement(By.id("permanentAddress"));
         element.clickElement(permanentAdressField);
-        element.writeOnElement(permanentAdressField,"Tara: Permanent Romania");
-        element.newLineOnElement(permanentAdressField);
-        element.writeOnElement(permanentAdressField,"Oras: Permanent Iasi");
+        element.writeOnElement(permanentAdressField, "Tara: Permanent Romania");
+        element.enterOnElement(permanentAdressField);
+        element.writeOnElement(permanentAdressField, "Oras: Permanent Iasi");
 
         WebElement submitButton = driver.findElement(By.id("submit"));
-       // jse.executeScript("window.scrollBy(0,250)");
-        window.scroll(0,250);
+        window.scroll(0, 250);
         element.clickElement(submitButton);
 
         List<WebElement> returnedElements = driver.findElements(By.cssSelector("div.border.col-md-12.col-sm-12 p"));
         buildExpectedList();
-
-
         for (WebElement element : returnedElements) {
             System.out.println(element.getText());
             Assert.assertTrue(expectedListInTextBoxAfterSubmit.contains(element.getText()));

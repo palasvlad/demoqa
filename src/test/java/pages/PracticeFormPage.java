@@ -1,8 +1,6 @@
 package pages;
 
 import helperMethods.Element;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -105,7 +103,7 @@ public class PracticeFormPage {
     public void setSubjectField(String subjectFieldContent) {
         subjectsField.click();
         element.writeOnElement(subjectsInputField, "English");
-        element.newLineOnElement(subjectsInputField);
+        element.enterOnElement(subjectsInputField);
     }
 
     public void clickOnHobbiesSports() {
@@ -124,10 +122,10 @@ public class PracticeFormPage {
     public void setStateAndCity(){
         element.clickElement(stateAndCity);
         element.writeOnElement(stateSelection, "NCR");
-        element.newLineOnElement(stateSelection);
+        element.enterOnElement(stateSelection);
         element.clickElement(cityDropdown);
         element.writeOnElement(citySelection,"Delhi");
-        element.newLineOnElement(citySelection);
+        element.enterOnElement(citySelection);
     }
 
     public void submitForm(){

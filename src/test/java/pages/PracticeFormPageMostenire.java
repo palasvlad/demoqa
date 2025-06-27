@@ -98,7 +98,7 @@ public class PracticeFormPageMostenire extends HomePage {
     public void setSubjectField(String subjectFieldContent) {
         subjectsField.click();
         element.writeOnElement(subjectsInputField, "English");
-        element.newLineOnElement(subjectsInputField);
+        element.enterOnElement(subjectsInputField);
     }
 
     public void clickOnHobbiesSports() {
@@ -117,10 +117,10 @@ public class PracticeFormPageMostenire extends HomePage {
     public void setStateAndCity() {
         element.clickElement(stateAndCity);
         element.writeOnElement(stateSelection, "NCR");
-        element.newLineOnElement(stateSelection);
+        element.enterOnElement(stateSelection);
         element.clickElement(cityDropdown);
         element.writeOnElement(citySelection, "Delhi");
-        element.newLineOnElement(citySelection);
+        element.enterOnElement(citySelection);
     }
 
     public void submitForm() {
