@@ -2,6 +2,7 @@ package features;
 
 import helperMethods.DriverHelper;
 import helperMethods.Element;
+import helperMethods.SetupCommon;
 import helperMethods.Window;
 import org.openqa.selenium.*;
 import org.testng.Assert;
@@ -15,6 +16,7 @@ import java.util.List;
 public class AAElementsTextBoxTest_Refactored {
 
     public WebDriver driver;
+    public SetupCommon setupCommon;
     public String expectedTextinTextBox = "Text Box";
     public List<String> expectedListInTextBoxAfterSubmit = new ArrayList<>();
     public Element element;
@@ -24,7 +26,9 @@ public class AAElementsTextBoxTest_Refactored {
 
     @Test
     public void testElementesTextBox() {
-        driver = DriverHelper.setupWebDriver("https://demoqa.com/");
+        setupCommon= new SetupCommon();
+        setupCommon.setUp();
+        driver = setupCommon.getDriver();
         element = new Element(driver);
         window = new Window(driver);
         homePage = new HomePage(driver);

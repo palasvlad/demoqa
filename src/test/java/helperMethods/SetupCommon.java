@@ -1,5 +1,7 @@
 package helperMethods;
 
+import configFile.ConfigFile;
+import configFile.configNode.ConfigurationNode;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -10,15 +12,16 @@ public class SetupCommon {
     public Window window;
 
     @BeforeMethod
-    public void setUp(){
+    public void setUp() {
+        ConfigurationNode configurationNode = ConfigFile.createConfigNode(ConfigurationNode.class);
         driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
+        driver.get(configurationNode.driverConfigNode.url);
         driver.manage().window().maximize();
         window = new Window(driver);
     }
 
     @AfterMethod
-    public void clearBrowser(){
+    public void clearBrowser() {
         driver.quit();
     }
 

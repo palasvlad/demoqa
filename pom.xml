@@ -34,6 +34,19 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>3.5.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+
     </dependencies>
 
     <profiles>
@@ -46,6 +59,10 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.5.3</version>
                         <configuration>
+                            <systemPropertyVariables>
+                                <browser>chrome</browser>
+                                <ciCdlocalorRemote>false</ciCdlocalorRemote>
+                            </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <!--suppress UnresolvedMavenProperty -->
                                 <suiteXmlFile>${suiteXmlFile}.xml</suiteXmlFile>
