@@ -4,7 +4,10 @@
         <LocalBrowser>chrome</LocalBrowser>
         <Url>https://demoqa.com/</Url>
         <Headless>--headless</Headless>
-        <Resolution>window-size=1920,1080</Resolution>
+        <WindowSize>
+            <Width>1280</Width>
+            <Height>800</Height>
+        </WindowSize>
     </DriverConfig>
     <DatabaseConfig>
         <Port></Port>

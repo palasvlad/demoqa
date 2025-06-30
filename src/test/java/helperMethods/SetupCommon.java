@@ -2,6 +2,8 @@ package helperMethods;
 
 import configFile.ConfigFile;
 import configFile.configNode.ConfigurationNode;
+import configFile.configNode.WindowSizeNode;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -14,10 +16,11 @@ public class SetupCommon {
     @BeforeMethod
     public void setUp() {
         ConfigurationNode configurationNode = ConfigFile.createConfigNode(ConfigurationNode.class);
+        WindowSizeNode windowSizeNode=ConfigFile.createConfigNode(WindowSizeNode.class);
         driver = new ChromeDriver();
         driver.get(configurationNode.driverConfigNode.url);
-        driver.manage().window().maximize();
-        window = new Window(driver);
+
+        driver.manage().window().setSize(new Dimension(configurationNode.driverConfigNode.windowSizeNode.width, configurationNode.driverConfigNode.windowSizeNode.height));
     }
 
     @AfterMethod

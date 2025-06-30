@@ -12,6 +12,6 @@ public class DriverConfigNode {
     public String url;
     @XmlElement(name = "Headless")
     public String headless;
-    @XmlElement(name = "Resolution")
-    public String resolution;
+    @XmlElement(name = "WindowSize")
+    public WindowSizeNode windowSizeNode;
 }
