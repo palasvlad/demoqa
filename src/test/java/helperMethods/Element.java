@@ -1,13 +1,12 @@
 package helperMethods;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.List;
 
 public class Element {
     public WebDriver driver;
+    JavascriptExecutor js = (JavascriptExecutor) driver;
 
     public Element(WebDriver driver) {
         this.driver = driver;
@@ -15,6 +14,10 @@ public class Element {
 
     public void clickElement(WebElement element) {
         element.click();
+    }
+
+    public void forceClickElement(WebElement element){
+        js.executeScript("arguments[0].click();", element);
     }
 
     public void writeOnElement(WebElement element, String textToSend) {
