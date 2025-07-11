@@ -1,7 +1,7 @@
 package features;
 
-import helperMethods.DriverHelper;
 import helperMethods.Element;
+import helperMethods.Hooks;
 import helperMethods.SetupCommon;
 import helperMethods.Window;
 import org.openqa.selenium.*;
@@ -13,7 +13,7 @@ import pages.SubMenuPage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AAElementsTextBoxTest_Refactored {
+public class AAElementsTextBoxTest_Refactored extends Hooks {
 
     public WebDriver driver;
     public SetupCommon setupCommon;

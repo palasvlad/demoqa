@@ -3,6 +3,7 @@ package helperMethods.browser;
 import configFile.ConfigFile;
 import configFile.configNode.ConfigurationNode;
 import helperMethods.browser.service.ChromeBrowserService;
+import logger.LoggerUtility;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Locale;
@@ -11,6 +12,9 @@ public class BrowserFactory {
     public WebDriver getBrwoserFactory() {
         String ciCd = System.getProperty("ciCdlocalorRemote");
         String browser = System.getProperty("browser").toLowerCase(Locale.ROOT);
+
+        LoggerUtility.infoLog("Ruleaza pe: "+ browser);
+        System.out.println("Ruleaza pe:" + browser);
 
         ConfigurationNode configurationNode = ConfigFile.createConfigNode(ConfigurationNode.class);
 
