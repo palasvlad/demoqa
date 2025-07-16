@@ -1,5 +1,7 @@
 package features;
 
+import com.aventstack.extentreports.Status;
+import extentUtility.ExtentReportManager;
 import helperMethods.Element;
 import helperMethods.Hooks;
 import helperMethods.SetupCommon;
@@ -39,16 +41,18 @@ public class AAElementsTextBoxTest_Refactored extends Hooks {
 
 
         WebElement textBoxText = driver.findElement(By.xpath("//h1[text()='Text Box']"));
-
+        ExtentReportManager.log(Status.INFO,"Test Started");
         String actualtext = textBoxText.getText();
         Assert.assertEquals(expectedTextinTextBox, actualtext);
 
         WebElement fullNameTextField = driver.findElement(By.id("userName"));
         element.clickElement(fullNameTextField);
         element.writeOnElement(fullNameTextField, "Vlad Palasanu");
+        ExtentReportManager.log(Status.PASS, "Test passed");
 
         WebElement eMailTextField = driver.findElement(By.id("userEmail"));
         element.clickElement(eMailTextField);
+        ExtentReportManager.log(Status.PASS, "Test passed");
         element.writeOnElement(eMailTextField, "palas.vlad@gmail.com");
 
         WebElement currentAdressField = driver.findElement(By.id("currentAddress"));
@@ -57,6 +61,7 @@ public class AAElementsTextBoxTest_Refactored extends Hooks {
         element.enterOnElement(currentAdressField);
         element.writeOnElement(currentAdressField, "Oras: Iasi");
         window.scroll(0, 250);
+        ExtentReportManager.log(Status.PASS, "Test passed");
 
         WebElement permanentAdressField = driver.findElement(By.id("permanentAddress"));
         element.clickElement(permanentAdressField);
@@ -74,6 +79,9 @@ public class AAElementsTextBoxTest_Refactored extends Hooks {
             System.out.println(element.getText());
             Assert.assertTrue(expectedListInTextBoxAfterSubmit.contains(element.getText()));
         }
+
+
+        ExtentReportManager.log(Status.PASS, "Test passed");
 
 
     }
