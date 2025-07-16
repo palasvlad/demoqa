@@ -2,7 +2,7 @@
 <suite name="SelectedTests">
     <test name="SelectedClasses">
         <classes>
-            <class name="features.AAElementsTextBoxTest_Refactored"/>
+            <class name="features.ElementsTextBoxTest"/>
         </classes>
     </test>
 </suite>

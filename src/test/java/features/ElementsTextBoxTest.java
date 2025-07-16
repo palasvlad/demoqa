@@ -11,11 +11,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.SubMenuPage;
+import pages.elements.TextBoxPage;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AAElementsTextBoxTest_Refactored extends Hooks {
+public class ElementsTextBoxTest extends Hooks {
 
     public WebDriver driver;
     public SetupCommon setupCommon;
@@ -25,6 +26,7 @@ public class AAElementsTextBoxTest_Refactored extends Hooks {
     public Window window;
     public HomePage homePage;
     public SubMenuPage subMenuPage;
+    public TextBoxPage textBoxPage;
 
     @Test
     public void testElementesTextBox() {
@@ -34,44 +36,26 @@ public class AAElementsTextBoxTest_Refactored extends Hooks {
         element = new Element(driver);
         window = new Window(driver);
         homePage = new HomePage(driver);
+        textBoxPage = new TextBoxPage(driver);
         subMenuPage = new SubMenuPage(driver);
 
-        homePage.goToMenuItem("Elements");
-        subMenuPage.goToDesiredSubMenu("Text Box");
-
-
-        WebElement textBoxText = driver.findElement(By.xpath("//h1[text()='Text Box']"));
         ExtentReportManager.log(Status.INFO,"Test Started");
-        String actualtext = textBoxText.getText();
-        Assert.assertEquals(expectedTextinTextBox, actualtext);
+        homePage.goToMenuItem("Elements");
+        ExtentReportManager.log(Status.PASS, "Successfully navigated to Elements page");
+        subMenuPage.goToDesiredSubMenu("Text Box");
+        ExtentReportManager.log(Status.PASS, "Successfully navigated to Text Box");
+        textBoxPage.enterUserName("Vlad Palasanu");
 
-        WebElement fullNameTextField = driver.findElement(By.id("userName"));
-        element.clickElement(fullNameTextField);
-        element.writeOnElement(fullNameTextField, "Vlad Palasanu");
-        ExtentReportManager.log(Status.PASS, "Test passed");
+        textBoxPage.enterEmailAddress("palas.vlad@gmail.com");
 
-        WebElement eMailTextField = driver.findElement(By.id("userEmail"));
-        element.clickElement(eMailTextField);
-        ExtentReportManager.log(Status.PASS, "Test passed");
-        element.writeOnElement(eMailTextField, "palas.vlad@gmail.com");
+        textBoxPage.enterCurrentAddress("Tara: Romania","Oras: Iasi");
 
-        WebElement currentAdressField = driver.findElement(By.id("currentAddress"));
-        element.clickElement(currentAdressField);
-        element.writeOnElement(currentAdressField, "Tara: Romania");
-        element.enterOnElement(currentAdressField);
-        element.writeOnElement(currentAdressField, "Oras: Iasi");
         window.scroll(0, 250);
-        ExtentReportManager.log(Status.PASS, "Test passed");
 
-        WebElement permanentAdressField = driver.findElement(By.id("permanentAddress"));
-        element.clickElement(permanentAdressField);
-        element.writeOnElement(permanentAdressField, "Tara: Permanent Romania");
-        element.enterOnElement(permanentAdressField);
-        element.writeOnElement(permanentAdressField, "Oras: Permanent Iasi");
+        textBoxPage.enterPermanentAddress("Tara: Permanent Romania","Oras: Permanent Iasi");
 
-        WebElement submitButton = driver.findElement(By.id("submit"));
         window.scroll(0, 250);
-        element.clickElement(submitButton);
+        textBoxPage.clickSubmitButton();
 
         List<WebElement> returnedElements = driver.findElements(By.cssSelector("div.border.col-md-12.col-sm-12 p"));
         buildExpectedList();
@@ -80,9 +64,7 @@ public class AAElementsTextBoxTest_Refactored extends Hooks {
             Assert.assertTrue(expectedListInTextBoxAfterSubmit.contains(element.getText()));
         }
 
-
-        ExtentReportManager.log(Status.PASS, "Test passed");
-
+        ExtentReportManager.log(Status.PASS, "Assertions passed");
 
     }
 

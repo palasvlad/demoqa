@@ -52,6 +52,7 @@ public class ExtentReportManager {
 
     // 4. Închide testul curent (nu e absolut necesar, ExtentReports finalizează singur)
     public static void endTest() {
+        log(Status.INFO,"Test Ended");
         testThread.remove();
     }
 
