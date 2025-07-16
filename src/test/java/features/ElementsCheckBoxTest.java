@@ -3,7 +3,6 @@ package features;
 import helperMethods.DriverHelper;
 import helperMethods.Window;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +11,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class ABElementsCheckBoxTest {
+public class ElementsCheckBoxTest {
     public WebDriver driver;
     public Window window;
 

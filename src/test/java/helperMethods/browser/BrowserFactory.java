@@ -14,7 +14,6 @@ public class BrowserFactory {
         String browser = System.getProperty("browser").toLowerCase(Locale.ROOT);
 
         LoggerUtility.infoLog("Ruleaza pe: "+ browser);
-        System.out.println("Ruleaza pe:" + browser);
 
         ConfigurationNode configurationNode = ConfigFile.createConfigNode(ConfigurationNode.class);
 

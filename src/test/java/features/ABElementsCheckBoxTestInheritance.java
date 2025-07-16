@@ -1,12 +1,12 @@
 package features;
 
+import helperMethods.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import helperMethods.SetupCommon;
 
-public class ABElementsCheckBoxTestInheritance extends SetupCommon {
+public class ABElementsCheckBoxTestInheritance extends Hooks {
 
     ABElementsCheckBoxTestInheritance (){
         super();

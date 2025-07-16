@@ -18,9 +18,7 @@ import java.util.List;
 
 public class ElementsTextBoxTest extends Hooks {
 
-    public WebDriver driver;
     public SetupCommon setupCommon;
-    public String expectedTextinTextBox = "Text Box";
     public List<String> expectedListInTextBoxAfterSubmit = new ArrayList<>();
     public Element element;
     public Window window;
@@ -32,7 +30,6 @@ public class ElementsTextBoxTest extends Hooks {
     public void testElementesTextBox() {
         setupCommon= new SetupCommon();
         setupCommon.setUp();
-        driver = setupCommon.getDriver();
         element = new Element(driver);
         window = new Window(driver);
         homePage = new HomePage(driver);
