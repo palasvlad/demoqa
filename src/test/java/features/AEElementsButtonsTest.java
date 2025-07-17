@@ -1,5 +1,6 @@
 package features;
 
+import helperMethods.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,15 +10,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
-public class AEElementsButtonsTest {
+public class AEElementsButtonsTest extends Hooks {
 
-    public WebDriver driver;
-
-    @Test(enabled = false)
+    @Test
     public void testelementsCheckBox() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,500)");

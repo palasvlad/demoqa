@@ -1,5 +1,6 @@
 package features;
 
+import helperMethods.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,14 +12,10 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.Set;
 
-public class AFElementsLinksTestClickOnHome {
-    public WebDriver driver;
+public class AFElementsLinksTestClickOnHome extends Hooks {
 
     @Test
     public void testelementsCheckBox() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,500)");

@@ -2,6 +2,7 @@ package features;
 
 import helperMethods.DriverHelper;
 import helperMethods.Element;
+import helperMethods.Hooks;
 import helperMethods.Window;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
@@ -9,21 +10,11 @@ import pages.HomePage;
 import pages.PracticeFormPage;
 import pages.SubMenuPage;
 
-public class BForms_Refactored {
-    WebDriver driver;
-    public Element element;
-    public Window window;
-    public HomePage homePage;
-    public SubMenuPage subMenuPage;
+public class BForms_Refactored extends Hooks {
     public PracticeFormPage practiceFormPage;
 
     @Test
     public void testPracticeForm() {
-        driver = DriverHelper.setupWebDriver("https://demoqa.com/");
-        element = new Element(driver);
-        window = new Window(driver);
-        homePage = new HomePage(driver);
-        subMenuPage = new SubMenuPage(driver);
         practiceFormPage = new PracticeFormPage(driver);
 
         homePage.goToMenuItem("Forms");

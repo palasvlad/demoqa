@@ -1,5 +1,6 @@
 package features;
 
+import helperMethods.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,13 +10,9 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-public class AGElementsDownload {
-    public WebDriver driver;
+public class AGElementsDownload extends Hooks {
     @Test
     public void testDownloadbutton() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,500)");

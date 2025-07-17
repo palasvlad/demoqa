@@ -1,17 +1,14 @@
 package features;
 
+import helperMethods.Hooks;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class CafwCAlerts4 {
-    public WebDriver driver;
+public class CafwCAlerts4 extends Hooks {
 
     @Test
     public void testDownloadbutton() throws InterruptedException {
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,500)");
