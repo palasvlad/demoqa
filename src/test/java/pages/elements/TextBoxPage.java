@@ -1,7 +1,6 @@
 package pages.elements;
 
 import helperMethods.Element;
-import helperMethods.Window;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,12 +12,10 @@ import java.util.List;
 public class TextBoxPage {
     WebDriver driver;
     Element element;
-    Window window;
 
     public TextBoxPage(WebDriver driver) {
         this.driver = driver;
         this.element = new Element(driver);
-        this.window = new Window(driver);
         PageFactory.initElements(driver, this);
     }
 

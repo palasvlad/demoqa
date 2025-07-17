@@ -12,7 +12,6 @@ public class SetupCommon {
 
         driver = new BrowserFactory().getBrwoserFactory();
         LoggerUtility.infoLog("The browser was opened with success");
-       // window = new Window(driver);
 
     }
 
