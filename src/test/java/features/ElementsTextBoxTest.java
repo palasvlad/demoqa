@@ -18,23 +18,10 @@ import java.util.List;
 
 public class ElementsTextBoxTest extends Hooks {
 
-    public SetupCommon setupCommon;
     public List<String> expectedListInTextBoxAfterSubmit = new ArrayList<>();
-    public Element element;
-    public Window window;
-    public HomePage homePage;
-    public SubMenuPage subMenuPage;
-    public TextBoxPage textBoxPage;
 
     @Test
     public void testElementesTextBox() {
-        setupCommon= new SetupCommon();
-        setupCommon.setUp();
-        element = new Element(driver);
-        window = new Window(driver);
-        homePage = new HomePage(driver);
-        textBoxPage = new TextBoxPage(driver);
-        subMenuPage = new SubMenuPage(driver);
 
         ExtentReportManager.log(Status.INFO,"Test Started");
         homePage.goToMenuItem("Elements");
@@ -42,15 +29,10 @@ public class ElementsTextBoxTest extends Hooks {
         subMenuPage.goToDesiredSubMenu("Text Box");
         ExtentReportManager.log(Status.PASS, "Successfully navigated to Text Box");
         textBoxPage.enterUserName("Vlad Palasanu");
-
         textBoxPage.enterEmailAddress("palas.vlad@gmail.com");
-
         textBoxPage.enterCurrentAddress("Tara: Romania","Oras: Iasi");
-
         window.scroll(0, 250);
-
         textBoxPage.enterPermanentAddress("Tara: Permanent Romania","Oras: Permanent Iasi");
-
         window.scroll(0, 250);
         textBoxPage.clickSubmitButton();
 

@@ -9,9 +9,18 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import pages.HomePage;
+import pages.SubMenuPage;
+import pages.elements.TextBoxPage;
 
 public class Hooks extends SetupCommon {
     public String testName;
+    protected SetupCommon setupCommon;
+    protected Element element;
+    protected Window window;
+    protected HomePage homePage;
+    protected SubMenuPage subMenuPage;
+    protected TextBoxPage textBoxPage;
 
     @BeforeSuite
     public void setupReport(){
@@ -24,6 +33,12 @@ public class Hooks extends SetupCommon {
         LoggerUtility.startTestCase(testName);
         setUp();
         ExtentReportManager.createTest(testName);
+        setupCommon = new SetupCommon();
+        element = new Element(driver);
+        window = new Window(driver);
+        homePage = new HomePage(driver);
+        subMenuPage = new SubMenuPage(driver);
+        textBoxPage = new TextBoxPage(driver);
     }
 
     @AfterMethod

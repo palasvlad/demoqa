@@ -27,6 +27,7 @@ public class BrowserFactory {
         switch (browser){
             case BrowserType.BROWSER_CHROME:
                 ChromeBrowserService chromeBrowserService = new ChromeBrowserService();
+                assert configurationNode != null;
                 chromeBrowserService.openBrowser(configurationNode.driverConfigNode);
                 return chromeBrowserService.getDriver();
             case BrowserType.BROWSER_EDGE:
