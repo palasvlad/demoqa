@@ -1,16 +1,10 @@
 package features;
 
-import helperMethods.DriverHelper;
-import helperMethods.Element;
 import helperMethods.Hooks;
-import helperMethods.Window;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.PracticeFormPage;
-import pages.SubMenuPage;
 
-public class BForms_Refactored extends Hooks {
+public class FormsTest extends Hooks {
     public PracticeFormPage practiceFormPage;
 
     @Test

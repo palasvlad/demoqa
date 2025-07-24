@@ -1,11 +1,12 @@
-package features;
+package features.toBeRefactored;
 
 import helperMethods.Hooks;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class CafwCAlerts4 extends Hooks {
+public class CafwCAlerts1 extends Hooks {
 
     @Test
     public void testDownloadbutton() throws InterruptedException {
@@ -19,14 +20,12 @@ public class CafwCAlerts4 extends Hooks {
         WebElement browserWindows = driver.findElement(By.xpath("//span[text()='Alerts']"));
         browserWindows.click();
         jse.executeScript("window.scrollBy(0,-50)");
-        
-        WebElement timerAlertButton = driver.findElement(By.id("promtButton"));
-        timerAlertButton.click();
 
+        WebElement alertButton = driver.findElement(By.id("alertButton"));
 
-        Alert promptAlert = driver.switchTo().alert();
-        promptAlert.sendKeys("Vlad");
-        promptAlert.accept();
+        alertButton.click();
+
+        driver.switchTo().alert().accept();
 
 
     }

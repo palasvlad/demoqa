@@ -1,18 +1,17 @@
-package features;
+package features.toBeRefactored;
 
 import helperMethods.Hooks;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CafwBrowserWindows2 extends Hooks {
+public class CafwBrowserWindows1 extends Hooks {
+
     @Test
     public void testDownloadbutton() throws InterruptedException {
 
@@ -25,7 +24,7 @@ public class CafwBrowserWindows2 extends Hooks {
         WebElement browserWindows = driver.findElement(By.xpath("//span[text()='Browser Windows']"));
         browserWindows.click();
 
-        WebElement newTabButton = driver.findElement(By.id("windowButton"));
+        WebElement newTabButton = driver.findElement(By.id("tabButton"));
         newTabButton.click();
 
         List<String> handles = new ArrayList<>(driver.getWindowHandles());
