@@ -3,7 +3,7 @@
     <DriverConfig>
         <LocalBrowser>chrome</LocalBrowser>
         <Url>https://demoqa.com/</Url>
-        <Headless></Headless>
+        <Headless>--headless</Headless>
         <WindowSize>
             <Width>1280</Width>
             <Height>800</Height>
