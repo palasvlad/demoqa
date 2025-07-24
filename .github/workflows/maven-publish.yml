@@ -9,7 +9,7 @@ on:
       suite:
         description: 'Choose automation suite: RegressionSuite, SmokeSuite'
         required: true
-        default: onetestexecution
+        default: SmokeSuite
       browser:
         description: 'Choose browser suite: chrome, edge, firefox'
         required: true
