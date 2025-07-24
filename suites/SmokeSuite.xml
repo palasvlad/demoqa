@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SelectedTests">
+    <test name="SelectedClasses">
+        <classes>
+            <class name="features.ElementsTextBoxTest"/>
+            <class name="features.ElementsCheckBoxTest"/>
+            <class name="features.ElementsRadioButtonTest"/>
+            <class name="features.FormsTest"/>
+        </classes>
+    </test>
+</suite>
