@@ -2,7 +2,9 @@ package helperMethods;
 
 import org.openqa.selenium.*;
 
+import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 public class Element {
     public WebDriver driver;
@@ -37,7 +39,8 @@ public class Element {
         }
     }
 
-    public void uploadFileOnElement(WebElement element, String pathToFile) {
-        element.sendKeys(pathToFile);
+    public void uploadFileOnElement(WebElement element, String resourceFile) {
+        String file = new File(Objects.requireNonNull(getClass().getClassLoader().getResource(resourceFile)).getFile()).getAbsolutePath();
+        element.sendKeys(file);
     }
 }

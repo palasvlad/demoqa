@@ -106,7 +106,7 @@ public class PracticeFormPageMostenire extends HomePage {
     }
 
     public void uploadPicture() {
-        element.uploadFileOnElement(chooseFileUploadButton, "C:\\Endava\\EndevLocal\\demoqa\\src\\test\\resources\\sampleFile.jpeg");
+        element.uploadFileOnElement(chooseFileUploadButton, "sampleFile.jpeg");
     }
 
     public void setCurrentAddress() {
